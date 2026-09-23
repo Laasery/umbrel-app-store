@@ -2,7 +2,7 @@ manifestVersion: 1
 id: bjarne-studylife
 name: StudyLife
 tagline: Personal study organization - calendar, focus timer, notes, and learning goals in one Blazor WebAssembly app.
-icon: https://svgur.com/i/mvA.svg
+icon: https://play-lh.googleusercontent.com/t5rkkfuE7wBaq2NM0rYe0HobvNRmCuKnPSsnkLXKQnBb6Dm42de8S7PU31Ac3vwgmUWnM_HCgmZvyBpF77_dbYo=w240-h480-rw
 category: Productivity
 version: "3.17.11"
 port: 8382
