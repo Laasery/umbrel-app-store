@@ -1,29 +1,23 @@
 manifestVersion: 1
-id: sparkles-hello-world
-name: Hello World
-tagline: Replace this tagline with your app's tagline
+id: bjarne-studylife
+name: StudyLife
+tagline: Personal study organization - calendar, focus timer, notes, and learning goals in one Blazor WebAssembly app.
 icon: https://svgur.com/i/mvA.svg
-category: Development
-version: "1.0.0"
-port: 4000
+category: Productivity
+version: "3.17.11"
+port: 8382
 description: >-
-  Add your app's description here.
-
-
-  You can also add newlines!
-
-developer: Umbrel
+  Personal study organization - calendar, focus timer, notes, and learning goals in one Blazor WebAssembly app. Multi-user with passkey login, designed to run on your own hardware, and the hub of a family of add-ons (native app, Home Assistant, AI assistant, MCP server, browser extensions, CLI, VS Code, Telegram, Alexa, an e-paper display, webhooks) that all talk to this one API.
+developer: lukislp
 website: https://umbrel.com
-submitter: Umbrel
-submission: https://github.com/getumbrel/umbrel-hello-world-app
-repo: https://github.com/getumbrel/umbrel-hello-world-app
-support: https://github.com/getumbrel/umbrel-hello-world-app/issues
+submitter: Bjarne
+submission: https://github.com/lukislp/studylife
+repo: https://github.com/lukislp/studylife
+support: https://github.com/lukislp/studylife/issues
 gallery:
-  - https://i.imgur.com/yyVG0Jb.jpeg
-  - https://i.imgur.com/yyVG0Jb.jpeg
-  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://github.com/lukislp/studylife/raw/main/docs/screenshot.png
 releaseNotes: >-
-  Add what's new in the latest version of your app here.
+  Bug Fixes
 dependencies: []
 path: ""
 defaultUsername: ""
