@@ -9,6 +9,17 @@ services:
       APP_PORT: 8382
     
   server:
-    image: lukislp/studylife-server:latest
+    image: ghcr.io/lukislp/studylife-server:latest
+    container_name: studylife
+    restart: unless-stopped
+    ports:
+      - "8382:8080"
+    volumes:
+      - studylife-data:/app/app_data
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080
+      Worker__Enabled: "true"
+    network_mode: bridge
     user: "1000:1000"
     init: true
