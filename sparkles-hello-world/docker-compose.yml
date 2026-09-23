@@ -1,25 +1,22 @@
 version: "3.7"
 
 services:
-
   app_proxy:
     environment:
-      # The format here is: <app-id>_<docker-service-name>_1
       APP_HOST: bjarne-studylife_server_1
-      APP_PORT: 8382
-    
+      APP_PORT: 8080
+
   server:
     image: ghcr.io/lukislp/studylife-server:latest
-    container_name: studylife
     restart: unless-stopped
-    ports:
-      - "8382:8080"
     volumes:
       - studylife-data:/app/app_data
     environment:
       ASPNETCORE_ENVIRONMENT: Production
       ASPNETCORE_URLS: http://+:8080
       Worker__Enabled: "true"
-    network_mode: bridge
     user: "1000:1000"
     init: true
+
+volumes:
+  studylife-data:
