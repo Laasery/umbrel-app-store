@@ -1,23 +1,25 @@
 manifestVersion: 1
-id: bjarne-heliumedu
-name: helium.
-tagline: Helium is a free, color-coded online student planner for classes, homework, grades, and notes.
+id: umbrel-heliumedu
+name: Helium
+tagline: Free, color-coded student planner for classes, homework, grades, and notes.
 icon: https://play-lh.googleusercontent.com/SoppfzbpQdTlk2_eE2y9wDrHJ3yr16kyi4YolM0sr-ejR5O79wEYoi-TV5SYpwXKHGoCy00B-BVGaukljf_SSEo=w240-h480-rw
-category: Productivity
+category: Education
 version: "2.5.7"
-port: 8382
+port: 8080
 description: >-
-  Helium is a free, color-coded online student planner for classes, homework, grades, and notes.
+  Helium is a free, color-coded online student planner for classes, homework,
+  grades, and notes. It provides classes, homework, grades, notes, and
+  calendar functionality through a self-hosted Helium backend.
 developer: HeliumEdu
-website: www.heliumedu.com
-submitter: Bjarne
-submission: https://github.com/HeliumEdu/platform
+website: https://www.heliumedu.com
+submitter: YOUR_GITHUB_USERNAME
+submission: https://github.com/YOUR_GITHUB_USERNAME/umbrel-heliumedu
 repo: https://github.com/HeliumEdu/platform
 support: https://github.com/HeliumEdu/platform/issues
 gallery:
   - https://camo.githubusercontent.com/af9bbc5ac33b8c34d8bb07626c30a8c0ef836f58460714de1191fe48b2345d07/68747470733a2f2f7777772e68656c69756d6564752e636f6d2f696d672f6f672d64656661756c742e706e67
 releaseNotes: >-
-  Bug Fixes
+  Initial Umbrel Community App release.
 dependencies: []
 path: ""
 defaultUsername: ""

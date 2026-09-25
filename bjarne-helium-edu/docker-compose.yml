@@ -1,69 +1,115 @@
 version: "3.7"
 
 services:
+
   app_proxy:
     environment:
-      APP_HOST: bjarne-helium-edu_server_1
-      APP_PORT: 8382
+      APP_HOST: umbrel-heliumedu_frontend_1
+      APP_PORT: 8080
 
   db:
     image: mysql:8.4
+
     environment:
-      MYSQL_ROOT_PASSWORD: "password"
-      MYSQL_DATABASE: "platform_dev-local"
-      MYSQL_USER: "helium"
-      MYSQL_PASSWORD: "helium"
-    ports:
-      - 3306:3306
+      MYSQL_ROOT_PASSWORD: helium-root
+      MYSQL_DATABASE: platform_dev-local
+      MYSQL_USER: helium
+      MYSQL_PASSWORD: helium
+
     healthcheck:
-        test: "mysql $$MYSQL_DATABASE -u$$MYSQL_USER -p$$MYSQL_PASSWORD -e 'SELECT 1;'"
-        timeout: 3s
-        retries: 20
+      test: "mysql $$MYSQL_DATABASE -u$$MYSQL_USER -p$$MYSQL_PASSWORD -e 'SELECT 1;'"
+      timeout: 3s
+      retries: 20
+      interval: 5s
+
+    volumes:
+      - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
+
+    restart: on-failure
+
   cache:
     image: valkey/valkey:8.1
-    ports:
-      - 6379:6379
+
+    volumes:
+      - ${APP_DATA_DIR}/data/valkey:/data
+
+    restart: on-failure
+
   storage:
     image: localstack/localstack:4.13.1
+
     environment:
-      ENVIRONMENT: "dev-local"
-    ports:
-      - 4566:4566
+      ENVIRONMENT: dev-local
+
     volumes:
-      - "./container/init-localstack.py:/etc/localstack/init/ready.d/init-localstack.py"
+      - ${APP_DATA_DIR}/data/localstack:/var/lib/localstack
+      - ./container/init-localstack.py:/etc/localstack/init/ready.d/init-localstack.py
+
+    restart: on-failure
+
   resource:
-    image: ${PLATFORM_RESOURCE_IMAGE:-${REGISTRY_PREFIX:-}helium/platform-resource:${PLATFORM:-arm64}-latest}
-    env_file: .env
+    image: helium/platform-resource:arm64-latest
+
+    env_file:
+      - .env
+
     depends_on:
       db:
         condition: service_healthy
       cache:
         condition: service_started
       storage:
-        condition: service_healthy
+        condition: service_started
+
+    restart: "no"
+
   api:
-    image: ${PLATFORM_API_IMAGE:-${REGISTRY_PREFIX:-}helium/platform-api:${PLATFORM:-arm64}-latest}
-    env_file: .env
-    ports:
-      - 8000:8000
+    image: helium/platform-api:arm64-latest
+
+    env_file:
+      - .env
+
+    expose:
+      - "8000"
+
     depends_on:
       db:
         condition: service_healthy
       cache:
         condition: service_started
       storage:
-        condition: service_healthy
+        condition: service_started
       resource:
         condition: service_completed_successfully
+
+    restart: on-failure
+
   worker:
-    image: ${PLATFORM_WORKER_IMAGE:-${REGISTRY_PREFIX:-}helium/platform-worker:${PLATFORM:-arm64}-latest}
-    env_file: .env
+    image: helium/platform-worker:arm64-latest
+
+    env_file:
+      - .env
+
     depends_on:
       db:
         condition: service_healthy
       cache:
         condition: service_started
       storage:
-        condition: service_healthy
+        condition: service_started
       resource:
         condition: service_completed_successfully
+
+    restart: on-failure
+
+  frontend:
+    image: YOUR_DOCKERHUB_USERNAME/helium-frontend:2.5.7
+
+    expose:
+      - "8080"
+
+    depends_on:
+      api:
+        condition: service_started
+
+    restart: on-failure
