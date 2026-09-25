@@ -1,0 +1,24 @@
+manifestVersion: 1
+id: bjarne-studylife
+name: StudyLife
+tagline: Personal study organization - calendar, focus timer, notes, and learning goals in one Blazor WebAssembly app.
+icon: https://play-lh.googleusercontent.com/t5rkkfuE7wBaq2NM0rYe0HobvNRmCuKnPSsnkLXKQnBb6Dm42de8S7PU31Ac3vwgmUWnM_HCgmZvyBpF77_dbYo=w240-h480-rw
+category: Productivity
+version: "3.17.11"
+port: 8382
+description: >-
+  Personal study organization - calendar, focus timer, notes, and learning goals in one Blazor WebAssembly app. Multi-user with passkey login, designed to run on your own hardware, and the hub of a family of add-ons (native app, Home Assistant, AI assistant, MCP server, browser extensions, CLI, VS Code, Telegram, Alexa, an e-paper display, webhooks) that all talk to this one API.
+developer: lukislp
+website: https://umbrel.com
+submitter: Bjarne
+submission: https://github.com/lukislp/studylife
+repo: https://github.com/lukislp/studylife
+support: https://github.com/lukislp/studylife/issues
+gallery:
+  - https://github.com/lukislp/studylife/raw/main/docs/screenshot.png
+releaseNotes: >-
+  Bug Fixes
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
