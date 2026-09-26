@@ -1,26 +1,30 @@
 manifestVersion: 1
-id: bjarne-heliumedu
-name: Helium
-tagline: Free, color-coded student planner for classes, homework, grades, and notes.
-icon: https://play-lh.googleusercontent.com/SoppfzbpQdTlk2_eE2y9wDrHJ3yr16kyi4YolM0sr-ejR5O79wEYoi-TV5SYpwXKHGoCy00B-BVGaukljf_SSEo=w240-h480-rw
-category: Education
-version: "2.5.7"
-port: 8080
+id: bjarne-heliumedu-platform
+category: education
+name: Helium Student Planner
+version: "1.0.0"
+tagline: A free, color-coded student planner for classes, homework, and grades
 description: >-
-  Helium is a free, color-coded online student planner for classes, homework,
-  grades, and notes. It provides classes, homework, grades, notes, and
-  calendar functionality through a self-hosted Helium backend.
+  Helium is a free, open-source student planner for organizing classes,
+  homework, and grades in one color-coded calendar. This app packages the
+  Helium `platform` backend (Django REST API + async worker), the same
+  backend that powers the official Helium apps and website.
+
+
+  Note: this is the API/admin backend only. Pair it with the Helium frontend
+  project, or point the official Helium iOS/Android apps at your server's
+  address, for the full planner UI.
 developer: HeliumEdu
 website: https://www.heliumedu.com
-submitter: YOUR_GITHUB_USERNAME
-submission: https://github.com/YOUR_GITHUB_USERNAME/umbrel-heliumedu
+dependencies: []
 repo: https://github.com/HeliumEdu/platform
 support: https://github.com/HeliumEdu/platform/issues
+port: 8000
 gallery:
-  - https://camo.githubusercontent.com/af9bbc5ac33b8c34d8bb07626c30a8c0ef836f58460714de1191fe48b2345d07/68747470733a2f2f7777772e68656c69756d6564752e636f6d2f696d672f6f672d64656661756c742e706e67
-releaseNotes: >-
-  Initial Umbrel Community App release.
-dependencies: []
+  - 1.jpg
+  - 2.jpg
 path: ""
 defaultUsername: ""
 defaultPassword: ""
+submitter: Bjarne
+submission: https://github.com/Laasery/umbrel-app-store/tree/master
